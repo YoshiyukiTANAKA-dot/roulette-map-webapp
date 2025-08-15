@@ -32,8 +32,8 @@ function showDestination(index) {
   const d = rouletteData[index];
   destInfo.innerHTML = `
     <div class="mt-3">
-      <a href="${d.SiteURL}" target="_blank" class="fw-bold">${d.Brand}</a><br>
-      <a href="${d.MapURL}" target="_blank">${d.Location}</a><br>
+      <a href="${d.SiteURL}" target="_blank" class="fw-bold">${d.Brand} (Site)</a><br>
+      <a href="${d.MapURL}" target="_blank">${d.Location} (Map)</a><br>
       <img src="${d.Picture}" alt="${d.Name}" class="img-fluid rounded mt-2" style="max-height:200px;">
     </div>
   `;
