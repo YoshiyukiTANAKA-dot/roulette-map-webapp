@@ -1,0 +1,18 @@
+{
+  "name": "roulette-map-webapp",
+  "version": "1.0.0",
+  "description": "This is a Node.js-based web application project scaffolded for deployment to GitHub Pages. The deployment folder is `docs`.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'No build step needed. Place static files in docs/'",
+    "deploy": "echo 'Deploy by pushing docs/ to GitHub Pages'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "express": "^4.18.2"
+  }
+}
