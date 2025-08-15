@@ -93,6 +93,6 @@ startBtn.addEventListener('click', async () => {
 
 window.addEventListener('DOMContentLoaded', async () => {
   rouletteData = await loadCSV();
-  currentIndex = 0;
+  currentIndex = Math.floor(Math.random() * rouletteData.length);
   showRoulette(currentIndex);
 });
