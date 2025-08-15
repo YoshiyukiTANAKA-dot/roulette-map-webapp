@@ -11,7 +11,7 @@ const startBtn = document.getElementById('start-btn');
 const destInfo = document.getElementById('destination-info');
 
 async function loadCSV() {
-  const res = await fetch('../csv/sample.csv');
+  const res = await fetch('csv/sample.csv');
   const text = await res.text();
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',');
