@@ -34,7 +34,7 @@ function showDestination(index) {
     <div class="mt-3">
       <a href="${d.SiteURL}" target="_blank" class="fw-bold">${d.Brand}</a><br>
       <a href="${d.MapURL}" target="_blank">${d.Location}</a><br>
-      <img src="../${d.Picture}" alt="${d.Name}" class="img-fluid rounded mt-2" style="max-height:200px;">
+      <img src="${d.Picture}" alt="${d.Name}" class="img-fluid rounded mt-2" style="max-height:200px;">
     </div>
   `;
 }
