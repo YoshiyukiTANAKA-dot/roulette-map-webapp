@@ -2,9 +2,11 @@
 let rouletteData = [];
 let currentIndex = 0;
 let state = '静止'; // '静止', '回転', '停止中'
+
 let spinInterval = null;
 let stopTimeout = null;
 let slowTimeout = null;
+let decidedIndex = null; // ルーレット停止時に表示するインデックス
 
 const roulette = document.getElementById('roulette');
 const startBtn = document.getElementById('start-btn');
@@ -64,6 +66,16 @@ function stopRoulette(final = false) {
 startBtn.addEventListener('click', async () => {
   if (state !== '静止') return;
   if (rouletteData.length === 0) return;
+  // Percentage列に基づき決定
+  const percentages = rouletteData.map(d => parseFloat(d.Percentage) || 0);
+  const sum = percentages.reduce((a, b) => a + b, 0);
+  let r = Math.random() * sum;
+  let idx = 0;
+  for (; idx < percentages.length; idx++) {
+    r -= percentages[idx];
+    if (r < 0) break;
+  }
+  decidedIndex = idx;
   state = '回転';
   startBtn.textContent = 'Where we go?';
   startBtn.disabled = true;
@@ -86,6 +98,8 @@ startBtn.addEventListener('click', async () => {
     // 5秒後に完全停止
     stopTimeout = setTimeout(() => {
       clearInterval(decelInterval);
+      // ここで決定済みのインデックスを表示
+      currentIndex = decidedIndex;
       stopRoulette(true);
     }, 5000);
   }, 3000);
